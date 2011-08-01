@@ -75,6 +75,8 @@ public:
 	ofxLimb hip;
 	XnUserID id;
 
+    bool skeletonTracking, skeletonCalibrating, skeletonCalibrated;
+    XnPoint3D    center;
 
 private:
 
