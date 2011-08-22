@@ -263,9 +263,9 @@ void ofxDepthGenerator::generateTexture(){
 					max = 255;	// half depth
 					{
 						XnUInt8 a = (XnUInt8)(((*depth) / ( max_depth / max)));
-						red		= a;
-						green	= a;
-						blue	= a;
+						red		= 255 - a;
+						green	= 255 - a;
+						blue	= 255 - a;
 					}
 					break;
 				case COLORING_STATUS:
