@@ -25,18 +25,18 @@ ofxHandGenerator::~ofxHandGenerator()
 // GESTURE EVENT LISTENER CALLBACK
 //--------------------------------------------------------------
 void ofxHandGenerator::gestureRecognized(gesture & last_gesture) {
-	
+
 	XnPoint3D handPos;
 	bool startTracking = false;
 	
 	if (found_hands == 0) {		// if we don't have any hands lets try to track
 		
 		startTracking = true;
-		
+
 	} else {
 		
 		startTracking = true; // do negative test by looking for the distance between each existing hand
-		
+
 		for (int i = 0; i < max_hands; i++) {
 			
 			// get raw position of this hand
@@ -127,6 +127,9 @@ bool ofxHandGenerator::setup(ofxOpenNIContext* pContext, int number_of_hands) {
 	} else {
 		result = hands_generator.Create(context->getXnContext());
 		CHECK_RC(result, "Creating hand generator");
+		
+		if (result != XN_STATUS_OK) return false;
+		
 		hands_generator.StartGenerating();
 	}
 	
@@ -250,10 +253,10 @@ ofxTrackedHand* ofxHandGenerator::getHand(int thIndex)
 {
 	// Return thIndex tracked hand
 	ofxTrackedHand *hand = tracked_hands[thIndex]; // here thIndex refers to index not the actually HandGenerators nID which seems to count forever....
-	if (hand->isBeingTracked) {
+	//if (hand->isBeingTracked) {
 		return hand;
-	}
-	return NULL;
+	//}
+	//return NULL;
 }
 
 // Draw all hands

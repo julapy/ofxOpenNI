@@ -76,8 +76,8 @@ public:
 	XnUserID id;
 
     bool skeletonTracking, skeletonCalibrating, skeletonCalibrated;
-    XnPoint3D    center;
-
+    XnPoint3D	center;
+    
 private:
 
 	ofxTrackedUser(ofxOpenNIContext* pContext);
